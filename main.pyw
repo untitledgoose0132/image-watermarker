@@ -34,17 +34,11 @@ def choose() -> tuple[list[str], str]:
         initialdir=INIT_DIR
     ))
 
-    if not img_paths:
-        exit()
-
     watermark_path: str = askopenfilename(
         title="Chọn logo để chèn vào ảnh",
         filetypes=WATERMARK_FTYPES,
         initialdir=INIT_DIR
     )
-
-    if not watermark_path:
-        exit()
 
     return img_paths, watermark_path
 
