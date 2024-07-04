@@ -43,7 +43,7 @@ def choose() -> tuple[list[str], str]:
         initialdir=INIT_DIR
     )
 
-    if not img_paths:
+    if not watermark_path:
         exit()
 
     return img_paths, watermark_path
@@ -76,7 +76,7 @@ def main() -> None:
 
     func = partial(apply_watermark, watermark_path=watermark_path)
     with Pool(cpu_count()) as pool:
-        pool.imap_unordered(func, img_paths)
+        pool.map(func, img_paths)
 
 
 if __name__ == "__main__":
