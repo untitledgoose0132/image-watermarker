@@ -2,7 +2,6 @@ from functools import partial
 from multiprocessing import Pool, cpu_count
 from os import environ, path
 from tkinter.filedialog import askopenfilename, askopenfilenames
-from tkinter.messagebox import showinfo
 
 from PIL import Image
 
@@ -71,8 +70,6 @@ def main() -> None:
     func = partial(apply_watermark, watermark_path=watermark_path)
     with Pool(cpu_count()) as pool:
         pool.map(func, img_paths)
-
-    showinfo(title="Image watermarker", message=f"Successfully applied watermark to {len(img_paths)} images")
 
 
 if __name__ == "__main__":
