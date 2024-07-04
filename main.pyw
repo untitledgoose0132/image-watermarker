@@ -2,6 +2,7 @@ from functools import partial
 from multiprocessing import Pool, cpu_count
 from os import environ, path
 from tkinter.filedialog import askopenfilename, askopenfilenames
+from sys import exit
 
 from PIL import Image
 
