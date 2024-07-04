@@ -49,13 +49,13 @@ def apply_watermark(image_path: str, watermark_path: str) -> None:
 
     x, y = image.size
 
-    modif: int = (x if x <= y else y) // 10
+    modif: int = (x if x <= y else y) // 5
     small, large = sorted(watermark.size)
     ratio: float = small / large
     watermark = watermark.resize((modif, round(modif * ratio)))
 
     mask = Image.new("RGBA", image.size)
-    mask.paste(watermark, (10, 10), watermark)
+    mask.paste(watermark, (30, 30), watermark)
 
     new_img = Image.alpha_composite(image, mask)
 
